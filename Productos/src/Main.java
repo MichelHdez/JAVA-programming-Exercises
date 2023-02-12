@@ -3,7 +3,7 @@ public class Main {
 
         System.out.println("Productos Estandar");
         Estandar e1 = new Estandar("Galletas", 200, "Dulces");
-        Estandar e2 = new Estandar("CafÃ©", 90, "Abarrotes");
+        Estandar e2 = new Estandar("Café", 90, "Abarrotes");
         System.out.println(e1);
         System.out.println(e2);
         e1.obtenerPrecioPedido(5, 200.00);
