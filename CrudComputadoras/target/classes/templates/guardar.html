@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns: th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CompuMex</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<!-- formulario -->
+	<br>
+	<h3 class="text-center" style="color: brown;">Alta de Computadoras</h3>
+	<br>
+	<div class="container">
+		<form style="color: brown;" th:action="@{/CtrlCompu/guardar}" method="post" th:object="${computadoras}">
+		<!-- <b> para combar el grosor de las letras-->
+			<b>
+				<div class="mb-3">
+					<label for="id" class="form-label">Id</label>
+					<input type="number" class="form-control" name="id" placeholder="Ingrese el id" th:field="*{id}">
+				</div>
+				<div class="mb-3">
+					<label for="marca" class="form-label">marca</label>
+					<input type="text" class="form-control" name="marca" placeholder="Ingrese la marca" th:field="*{marca}">
+				</div>
+				<div class="mb-3">
+					<label for="modelo" class="form-label">modelo</label>
+					<input type="text" class="form-control" name="modelo" placeholder="Ingrese el modelo" th:field="*{modelo}">
+				</div>
+				<div class="mb-3">
+					<label for="color" class="form-label">color</label>
+					<input type="text" class="form-control" name="color" placeholder="Ingrese el color" th:field="*{color}">
+				</div>
+				<div class="mb-3">
+					<label for="peso" class="form-label">peso</label>
+					<input type="text" class="form-control" name="peso" placeholder="Ingrese el peso" th:field="*{peso}">
+				</div>
+				<div class="mb-3">
+					<label for="precio" class="form-label">precio</label>
+					<input type="number" class="form-control" name="precio" placeholder="Ingrese el precio" th:field="*{precio}">
+				</div>
+				<div class="mb-3">
+					<label for="so" class="form-label">so</label>
+					<input type="text" class="form-control" name="so" placeholder="Ingrese el so" th:field="*{so}">
+				</div>
+
+
+				<input type="submit" class="btn btn-outline-success" name="guardar" value="Guardar">
+			</b>
+		</form>
+	</div>
+
+
+	<!--script-->
+
+	<!--popper -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+		crossorigin="anonymous"></script>
+	<!--iconos -->
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	<!--Jquery -->
+	<script scr="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+
+</html>
