@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Opticas Visco</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+		<!-- nav -->
+	<div class="container-fluid" style="color: red;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+     <img src="../FrontJquery/imagenes/logo.png" width="100" height="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="#">Lista de Lentes</a>
+        </li>    
+         <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="#" id="abrirGuardar">Agregar Lente</a>
+        </li>  
+        
+      </ul>
+      <form class="d-flex" role="search">
+        <input  class="form-control me-2 " type="text" placeholder="Buscar" aria-label="Buscar" id="buscar">
+        <button class="btn btn-outline-danger" type="button" id="buscarXatributo">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+<br>
+<br>
+<!-- Table -->
+
+<div class="container">
+  <div class="box-body table-responsive">
+    <table class="table table-success">	
+    <thead>
+    	<tr>
+    		<th class="text-center">Id</th>
+    		<th class="text-center">Nombre</th>
+    		<th class="text-center">Marca</th>
+    		<th class="text-center">Modelo</th>
+    		<th class="text-center">Armazon</th>
+    		<th class="text-center">Mica</th>
+    		<th class="text-center">Graduación</th>
+			 <th class="text-center">Precio</th>
+    		<th class="text-center">Tipo</th>
+    		<th class="text-center" style="color: orange;">Editar</th>
+    		<th class="text-center" style="color: red;">Eliminar</th>
+    		
+    	</tr>    	
+    </thead>
+    <tbody id="Tabla">
+    	
+    </tbody>
+    </table>
+  </div>	
+</div>
+
+<!-- modal agregar -->
+<div class="modal " tabindex="-1" id="modalAgregar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Lente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+      <form>
+        <div class="mb-3">
+         <label for="id" class="form-label">Id</label>
+         <input type="number" class="form-control" id="id" >
+         <div id="emailHelp" class="form-text">Ingrese el Id</div>
+       </div>
+       <div class="mb-3">
+       <label for="nombre" class="form-label">Nombre</label>
+         <input type="text" class="form-control" id="nombre" >
+         <div id="emailHelp" class="form-text">Ingrese El Nombre</div>
+       </div>
+       <div class="mb-3">
+       <label for="marca" class="form-label">marca</label>
+         <input type="text" class="form-control" id="marca" >
+         <div id="emailHelp" class="form-text">Ingrese La Marca</div>
+       </div>
+       <div class="mb-3">
+       <label for="modelo" class="form-label">modelo</label>
+         <input type="text" class="form-control" id="modelo" >
+         <div id="emailHelp" class="form-text">Ingrese El Modelo</div>
+       </div>
+       <div class="mb-3">
+       <label for="armazon" class="form-label">Armazon</label>
+         <input type="text" class="form-control" id="armazon" >
+         <div id="emailHelp" class="form-text">Ingrese El Armazon</div>
+       </div>
+       <div class="mb-3">
+       <label for="mica" class="form-label">mica</label>
+         <input type="text" class="form-control" id="mica" >
+         <div id="emailHelp" class="form-text">Ingrese La Mica</div>
+       </div>
+      <div class="mb-3">
+       <label for="graduacion" class="form-label">graduacion</label>
+         <input type="text" class="form-control" id="graduacion" >
+         <div id="emailHelp" class="form-text">Ingrese La Graduacion</div>
+       </div>
+       <div class="mb-3">
+       <label for="tipo" class="form-label">tipo</label>
+         <input type="text" class="form-control" id="tipo" >
+         <div id="emailHelp" class="form-text">Ingrese El Tipo</div>
+       </div>
+
+       <div class="mb-3">
+       <label for="precio" class="form-label">precio</label>
+         <input type="number" class="form-control" id="precio" >
+         <div id="emailHelp" class="form-text">Ingrese El Precio</div>
+       </div>
+    </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal editar -->
+<div class="modal " tabindex="-1" id="modalEditar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Lente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+      <form>
+        <div class="mb-3">
+         <label for="idE" class="form-label">Id</label>
+         <input type="number" class="form-control" id="idE" readonly>
+         <div id="emailHelp" class="form-text">Ingrese el Id</div>
+       </div>
+       <div class="mb-3">
+       <label for="nombreE" class="form-label">Nombre</label>
+         <input type="text" class="form-control" id="nombreE" >
+         <div id="emailHelp" class="form-text">Ingrese El Nombre</div>
+       </div>
+       <div class="mb-3">
+       <label for="marcaE" class="form-label">marca</label>
+         <input type="text" class="form-control" id="marcaE" >
+         <div id="emailHelp" class="form-text">Ingrese La Marca</div>
+       </div>
+       <div class="mb-3">
+       <label for="modeloE" class="form-label">modelo</label>
+         <input type="text" class="form-control" id="modeloE" >
+         <div id="emailHelp" class="form-text">Ingrese El Modelo</div>
+       </div>
+       <div class="mb-3">
+       <label for="armazonE" class="form-label">Armazon</label>
+         <input type="text" class="form-control" id="armazonE" >
+         <div id="emailHelp" class="form-text">Ingrese El Armazon</div>
+       </div>
+       <div class="mb-3">
+       <label for="micaE" class="form-label">mica</label>
+         <input type="text" class="form-control" id="micaE" >
+         <div id="emailHelp" class="form-text">Ingrese La Mica</div>
+       </div>
+      <div class="mb-3">
+       <label for="graduacionE" class="form-label">graduacion</label>
+         <input type="text" class="form-control" id="graduacionE" >
+         <div id="emailHelp" class="form-text">Ingrese La Graduacion</div>
+       </div>
+       <div class="mb-3">
+       <label for="tipoE" class="form-label">tipo</label>
+         <input type="text" class="form-control" id="tipoE" >
+         <div id="emailHelp" class="form-text">Ingrese El Tipo</div>
+       </div>
+
+       <div class="mb-3">
+       <label for="precioE" class="form-label">precio</label>
+         <input type="number" class="form-control" id="precioE" >
+         <div id="emailHelp" class="form-text">Ingrese El Precio</div>
+       </div>
+    </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btnEditar">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Popper -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+<!-- jquery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Java Script-->
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>

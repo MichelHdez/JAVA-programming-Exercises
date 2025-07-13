@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Computadoras</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+	<!-- nav -->
+	<div class="container-fluid" style="color: red;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+     <img src="../FrontJquery/imagenes/logo.png" width="100" height="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="#">Lista Computadoras</a>
+        </li>    
+         <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="#" id="abrirGuardar">Nueva Computadora</a>
+        </li>  
+         <!-- <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="#">Contacto</a>
+        </li> -->
+        
+      </ul>
+      <form class="d-flex" role="search">
+        <input  class="form-control me-2 " type="text" placeholder="Buscar" aria-label="Buscar" id="buscar">
+        <button class="btn btn-outline-danger" type="button" id="buscarXatributo">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+<br>
+<br>
+<!-- Table -->
+
+<div class="container">
+  <div class="box-body table-responsive">
+    <table class="table table-success">	
+    <thead>
+    	<tr>
+    		<th class="text-center">ID</th>
+    		<th class="text-center">MARCA</th>
+    		<th class="text-center">MODELO</th>
+    		<th class="text-center">COLOR</th>
+    		<th class="text-center">PESO</th>
+    		<th class="text-center">PRECIO</th>
+    		<th class="text-center">SO</th>
+    		<th class="text-center" style="color: orange;">Editar</th>
+    		<th class="text-center" style="color: red;">Eliminar</th>
+    		
+    	</tr>    	
+    </thead>
+    <tbody id="Tabla">
+    	
+    </tbody>
+    </table>
+  </div>	
+</div>
+
+<!-- modal agregar -->
+<div class="modal " tabindex="-1" id="modalAgregar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Computadora</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+      <form>
+        <div class="mb-3">
+         <label for="id" class="form-label">Id</label>
+         <input type="number" class="form-control" id="id" >
+         <div id="emailHelp" class="form-text">Ingrese el Id</div>
+       </div>
+       <div class="mb-3">
+       <label for="marca" class="form-label">marca</label>
+         <input type="text" class="form-control" id="marca" >
+         <div id="emailHelp" class="form-text">Ingrese La Marca</div>
+       </div>
+       <div class="mb-3">
+       <label for="modelo" class="form-label">modelo</label>
+         <input type="text" class="form-control" id="modelo" >
+         <div id="emailHelp" class="form-text">Ingrese El Modelo</div>
+       </div>
+       <div class="mb-3">
+       <label for="color" class="form-label">color</label>
+         <input type="text" class="form-control" id="color" >
+         <div id="emailHelp" class="form-text">Ingrese El Color</div>
+       </div>
+       <div class="mb-3">
+       <label for="peso" class="form-label">peso</label>
+         <input type="text" class="form-control" id="peso" >
+         <div id="emailHelp" class="form-text">Ingrese El Peso</div>
+       </div>
+       <div class="mb-3">
+       <label for="precio" class="form-label">precio</label>
+         <input type="number" class="form-control" id="precio" >
+         <div id="emailHelp" class="form-text">Ingrese El Precio</div>
+       </div>
+      <div class="mb-3">
+       <label for="so" class="form-label">so</label>
+         <input type="text" class="form-control" id="so" >
+         <div id="emailHelp" class="form-text">Ingrese El Sistema Operativo</div>
+       </div>
+    </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal editar -->
+<div class="modal " tabindex="-1" id="modalEditar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Computadora</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+      <form>
+        <div class="mb-3">
+         <label for="idE" class="form-label">Id</label>
+         <input type="number" class="form-control" id="idE" >
+          <div id="emailHelp" class="form-text">Ingrese el Id</div>
+       </div>
+       <div class="mb-3">
+       <label for="marcaE" class="form-label">marca</label>
+         <input type="text" class="form-control" id="marcaE" >
+         <div id="emailHelp" class="form-text">Ingrese La Marca</div>
+       </div>
+       <div class="mb-3">
+       <label for="modeloE" class="form-label">modelo</label>
+         <input type="text" class="form-control" id="modeloE" >
+         <div id="emailHelp" class="form-text">Ingrese El Modelo</div>
+       </div>
+       <div class="mb-3">
+       <label for="colorE" class="form-label">color</label>
+         <input type="text" class="form-control" id="colorE" >
+         <div id="emailHelp" class="form-text">Ingrese El Color</div>
+       </div>
+       <div class="mb-3">
+       <label for="pesoE" class="form-label">peso</label>
+         <input type="text" class="form-control" id="pesoE" >
+         <div id="emailHelp" class="form-text">Ingrese El Peso</div>
+       </div>
+       <div class="mb-3">
+       <label for="precioE" class="form-label">precio</label>
+         <input type="number" class="form-control" id="precioE" >
+          <div id="emailHelp" class="form-text">Ingrese El Precio</div>
+       </div>
+      <div class="mb-3">
+       <label for="soE" class="form-label">so</label>
+         <input type="text" class="form-control" id="soE" >
+        <div id="emailHelp" class="form-text">Ingrese El Sistema Operativo</div>
+       </div>
+    </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btnEditar">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Popper -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+<!-- jquery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Java Script-->
+<script type="text/javascript" src="funciones.js"></script>
+
+</body>
+</html>
+
